@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        a button{
+            height: 36px;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+        <div>
+            {% if user.is_authenticated %}
+            <h1>Welcome {{user.username}}, to the django app</h1>
+            {% else %}
+            <h1>Welcome to the django app</h1>
+            {% endif %}
+        </div>
+        <div>
+            
+            <a href="{% url 'signup' %}"><button>signup</button></a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><button>logout</button></a>
+            {% else %}
+            <a href="{% url 'login' %}"><button>login</button></a>
+            {% endif %}
+
+        </div>
+   </div>
+    
+
+  
+</body>
+</html>

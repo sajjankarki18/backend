@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <form action="{% url 'login' %}" method="POST" style="border:1px solid #ccc">
+      {% csrf_token %}
+        <div class="container">
+          <h1>Login user</h1>
+          <p>Please fill in this form to Login into website.</p>
+          <hr>
+
+          {% for message in messages %}
+          <h3 style="color: red;">{{message}}</h3>
+          {% endfor %}
+
+          <label for="username"><b>username</b></label>
+          <input type="text" placeholder="Enter username" name="username" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+        
+          <div class="clearfix">
+            <button type="submit" class="signupbtn">Login</button>
+          </div>
+        </div>
+      </form>
+</body>
+</html>
