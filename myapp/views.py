@@ -26,10 +26,6 @@ def signup(request):
                     messages.info(request, 'Email already exists!')
                     return redirect('signup')
                 
-                elif not validate_email(email):
-                    messages.info(request, 'Invalid email format!')
-                    return redirect('signup')
-                
                 else:
                     user = User.objects.create_user(username=username, email=email, password=password)
                     user.save()
@@ -67,12 +63,3 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-
-def validate_email(email):
-    email_condition = "^[a-z]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$"
-
-    if re.search(email_condition, email):
-        return True
-    else:
-        return False
-    
