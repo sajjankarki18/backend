@@ -19,22 +19,25 @@
           <h3 style="color: red;">{{message}}</h3>
           {% endfor %}
 
+          <h3 style="color: red;" class="error-message"></h3>
+
           <label for="username"><b>username</b></label>
-          <input type="text" placeholder="Enter username" name="username" required>
+          <input class="username" type="text" placeholder="Enter username" name="username" required>
       
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <input class="email" type="text" placeholder="Enter Email" name="email" required>
       
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <input class="password" type="password" placeholder="Enter Password" name="password" required>
       
           <label for="psw-repeat"><b>Repeat Password</b></label>
           <input type="password" placeholder="Repeat Password" name="password2" required>
         
           <div class="clearfix">
-            <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="submit" class="signupbtn js-signup-button">Sign Up</button>
           </div>
         </div>
       </form>
+      <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
